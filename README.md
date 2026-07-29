@@ -18,7 +18,19 @@ npm run build
 npm run preview
 ```
 
-Static files are output to `dist/`, ready to deploy to Netlify, Cloudflare Pages, GitHub Pages, or similar.
+Static files are output to `dist/`.
+
+## GitHub Pages
+
+The site deploys automatically from `main` via GitHub Actions (`.github/workflows/deploy.yml`).
+
+1. In the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**
+2. Point your domain DNS at GitHub Pages (for apex `therapywithben.uk`):
+   - **A** records to GitHub’s IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - Or a **CNAME** for `www` to `benmidwinter.github.io`
+3. In **Settings → Pages**, set Custom domain to `therapywithben.uk` and enable HTTPS once DNS has propagated
+
+`public/CNAME` already contains `therapywithben.uk`.
 
 ## Contact form
 
@@ -44,4 +56,3 @@ Policy pages (footer links only):
 - `/therapeutic-agreement` — therapeutic contract  
 - `/payment-policy` — fees & cancellations (48-hour notice)  
 - `/safeguarding-and-complaints` — safeguarding, DBS, HCPC & NCIP complaints  
-
