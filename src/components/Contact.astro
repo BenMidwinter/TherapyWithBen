@@ -1,0 +1,54 @@
+---
+const formAction = 'https://formsubmit.co/hello@therapywithben.uk';
+---
+
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <p class="section__eyebrow reveal">Contact</p>
+  <h2 class="section__title reveal" id="contact-title">Let’s begin gently.</h2>
+  <p class="section__lede reveal">
+    If this sounds like the kind of space you’ve been looking for, feel free to
+    reach out. There’s no pressure to have everything figured out—a few short
+    lines are enough to start the conversation.
+  </p>
+
+  <div class="contact-layout">
+    <div class="contact-details reveal">
+      <p>
+        Email:
+        {' '}<a href="mailto:hello@therapywithben.uk">hello@therapywithben.uk</a>
+      </p>
+      <p>Location: Walthamstow, Waltham Forest, London, E17</p>
+      <p>I usually reply within two to three working days.</p>
+      <p class="contact-crisis">
+        Please note: Messages sent via this site are for general enquiries only.
+        Please do not include detailed clinical information in your initial email.
+        If you are experiencing an urgent mental health crisis, please contact your
+        GP or local NHS crisis services.
+      </p>
+    </div>
+
+    <form class="contact-form reveal" action={formAction} method="POST">
+      <input type="hidden" name="_subject" value="Website enquiry — Therapy With Ben" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <label>
+        Name
+        <input type="text" name="name" autocomplete="name" required />
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" autocomplete="email" required />
+      </label>
+      <label>
+        Message
+        <textarea name="message" required></textarea>
+      </label>
+      <button class="btn btn--primary" type="submit">Send message</button>
+      <p class="form-note">
+        Your message is sent to hello@therapywithben.uk.
+      </p>
+    </form>
+  </div>
+</section>
