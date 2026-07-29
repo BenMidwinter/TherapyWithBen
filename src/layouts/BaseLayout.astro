@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const siteUrl = 'https://therapywithben.uk';
+const siteUrl = (Astro.site?.href ?? 'https://therapywithben.uk').replace(/\/$/, '');
 const {
   title = 'Therapy With Ben | Integrative Psychotherapy in Walthamstow, London',
   description = 'Integrative psychotherapy with Ben in Walthamstow, East London. Trauma-informed support for people who have tried therapy before, or felt it wasn’t for them — and are ready for a better fit.',
