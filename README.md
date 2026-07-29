@@ -56,3 +56,7 @@ Policy pages (footer links only):
 - `/therapeutic-agreement` — therapeutic contract  
 - `/payment-policy` — fees & cancellations (48-hour notice)  
 - `/safeguarding-and-complaints` — safeguarding, DBS, HCPC & NCIP complaints  
+
+## SEO notes
+
+After deploy, submit `https://therapywithben.uk/sitemap-index.xml` in [Google Search Console](https://search.google.com/search-console) and Bing Webmaster Tools. A reciprocal link from [That Music Therapy Lot](https://thatmusictherapylot.uk/) also helps discovery.

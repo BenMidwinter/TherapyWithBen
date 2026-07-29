@@ -12,35 +12,100 @@ const {
   description = 'Integrative psychotherapy with Ben in Walthamstow, East London. Trauma-informed support for people who have tried therapy before, or felt it wasn’t for them — and are ready for a better fit.',
 } = Astro.props;
 
+const pathname = Astro.url.pathname;
+const canonical = new URL(pathname, `${siteUrl}/`).href;
+const ogImage = new URL('/og-image.jpg', `${siteUrl}/`).href;
+const isHome = pathname === '/' || pathname === '';
+
+const personId = `${siteUrl}/#ben`;
+const orgId = `${siteUrl}/#practice`;
+
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Therapy With Ben',
-  description,
-  url: siteUrl,
-  email: 'hello@therapywithben.uk',
-  areaServed: {
-    '@type': 'Place',
-    name: 'Walthamstow, Waltham Forest, London, E17',
-  },
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Walthamstow',
-    addressRegion: 'London',
-    postalCode: 'E17',
-    addressCountry: 'GB',
-  },
-  founder: {
-    '@type': 'Person',
-    name: 'Ben Richardson',
-    jobTitle: 'Integrative Psychotherapist',
-  },
-  parentOrganization: {
-    '@type': 'Organization',
-    name: 'That Music Therapy Lot',
-    url: 'https://thatmusictherapylot.uk/',
-  },
-  sameAs: ['https://thatmusictherapylot.uk/', 'https://www.the-ncip.org/', 'https://www.hcpc-uk.org/'],
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: 'Therapy With Ben',
+      description,
+      inLanguage: 'en-GB',
+      publisher: { '@id': orgId },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      isPartOf: { '@id': `${siteUrl}/#website` },
+      about: isHome ? { '@id': orgId } : undefined,
+      inLanguage: 'en-GB',
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': orgId,
+      name: 'Therapy With Ben',
+      alternateName: 'Therapy With Ben — Ben Richardson',
+      description,
+      url: siteUrl,
+      email: 'hello@therapywithben.uk',
+      image: ogImage,
+      inLanguage: 'en-GB',
+      areaServed: [
+        {
+          '@type': 'Place',
+          name: 'Walthamstow, Waltham Forest, London, E17',
+        },
+        {
+          '@type': 'AdministrativeArea',
+          name: 'Greater London',
+        },
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Walthamstow',
+        addressRegion: 'London',
+        postalCode: 'E17',
+        addressCountry: 'GB',
+      },
+      founder: { '@id': personId },
+      employee: { '@id': personId },
+      parentOrganization: {
+        '@type': 'Organization',
+        name: 'That Music Therapy Lot',
+        url: 'https://thatmusictherapylot.uk/',
+      },
+      sameAs: [
+        'https://thatmusictherapylot.uk/',
+        'https://www.the-ncip.org/',
+        'https://www.hcpc-uk.org/',
+      ],
+      knowsAbout: [
+        'Integrative psychotherapy',
+        'Acceptance and Commitment Therapy',
+        'Trauma',
+        'Anxiety',
+        'Emotional-Based School Avoidance',
+        'Neurodivergence',
+        'Adolescents and young adults',
+      ],
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: 'Ben Richardson',
+      jobTitle: 'Integrative Psychotherapist',
+      url: `${siteUrl}/#about`,
+      worksFor: { '@id': orgId },
+      knowsAbout: [
+        'Integrative psychotherapy',
+        'Music therapy',
+        'Acceptance and Commitment Therapy',
+      ],
+      sameAs: ['https://thatmusictherapylot.uk/'],
+    },
+  ],
 };
 ---
 
@@ -54,27 +119,37 @@ const jsonLd = {
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="integrative psychotherapy, therapist Walthamstow, trauma therapy London, therapy East London, Acceptance and Commitment Therapy, HCPC music therapist, NCIP, Therapy With Ben"
+      content="integrative psychotherapy Walthamstow, therapist East London, trauma therapy London, therapy for adolescents, ACT therapy, therapy after failed therapy, HCPC music therapist, NCIP, Therapy With Ben"
     />
     <meta name="author" content="Ben Richardson" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={siteUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="geo.region" content="GB-LND" />
+    <meta name="geo.placename" content="Walthamstow" />
+    <link rel="canonical" href={canonical} />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={isHome ? 'website' : 'article'} />
     <meta property="og:locale" content="en_GB" />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Therapy With Ben" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Therapy With Ben — integrative psychotherapy in East London" />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Therapy With Ben — integrative psychotherapy in East London" />
 
     <meta name="theme-color" content="#eef3f0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
