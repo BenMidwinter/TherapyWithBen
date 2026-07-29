@@ -383,7 +383,6 @@ a:hover {
 .help-stack {
   display: grid;
   gap: var(--space-lg);
-  max-width: var(--measure-wide);
 }
 
 .approach-block h3 {
@@ -404,11 +403,196 @@ a:hover {
   margin-bottom: 0;
 }
 
-.approach-note {
-  margin-top: var(--space-xl);
-  max-width: var(--measure-wide);
+.practice-layout {
+  display: grid;
+  gap: var(--space-lg);
+  max-width: none;
+}
+
+@media (min-width: 800px) {
+  .practice-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+  }
+}
+
+.rates-box {
+  width: 100%;
+  padding: clamp(1.25rem, 3vw, 1.85rem);
+  border: 1px solid rgba(95, 122, 104, 0.22);
+  border-radius: calc(var(--radius) + 0.25rem);
+  background: rgba(247, 250, 248, 0.88);
+  box-sizing: border-box;
+}
+
+.rates-box__layout {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 800px) {
+  .rates-box__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    align-items: start;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+}
+
+.rates-box h3 {
+  margin: 0 0 var(--space-sm);
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.5vw, 1.75rem);
+  font-weight: 450;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.rates-box__intro {
+  margin: 0 0 var(--space-md);
+  color: var(--color-ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.rates-box__copy .rates-footnote {
+  margin-top: 0;
+}
+
+.rates-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin: 0 0 var(--space-md);
+  color: var(--color-ink);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.rates-check input {
+  margin-top: 0.3rem;
+  accent-color: var(--color-sage);
+  width: 1.05rem;
+  height: 1.05rem;
+  flex-shrink: 0;
+}
+
+.rates-hint {
+  margin: 0 0 0.45rem;
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+}
+
+.rates-hint--household {
+  margin-bottom: var(--space-md);
+  color: var(--color-sage-deep);
+}
+
+.rates-hint.is-hidden {
+  display: none;
+}
+
+.rates-slider-wrap {
+  margin-top: var(--space-md);
+}
+
+.rates-slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+}
+
+.rates-slider-label strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+  font-weight: 450;
+  color: var(--color-ink);
+}
+
+.rates-slider {
+  width: 100%;
+  appearance: none;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-mist-deep), var(--color-sage));
+  outline: none;
+  cursor: pointer;
+}
+
+.rates-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-sage-deep);
+  box-shadow: 0 1px 4px rgba(30, 44, 35, 0.12);
+}
+
+.rates-slider::-moz-range-thumb {
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-sage-deep);
+  box-shadow: 0 1px 4px rgba(30, 44, 35, 0.12);
+}
+
+.rates-slider:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+.rates-slider-ends {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.45rem;
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+}
+
+.rates-result {
+  margin-top: var(--space-lg);
   padding-top: var(--space-md);
-  border-top: 1px solid rgba(95, 122, 104, 0.18);
+  border-top: 1px solid rgba(95, 122, 104, 0.16);
+}
+
+.rates-result__band {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+}
+
+.rates-result__fee {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.55rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  font-weight: 450;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+  line-height: 1;
+}
+
+.rates-result__unit {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-ink-soft);
+  letter-spacing: 0;
+}
+
+.rates-footnote {
+  margin: var(--space-md) 0 0;
+  font-size: 0.88rem;
   color: var(--color-ink-soft);
 }
 

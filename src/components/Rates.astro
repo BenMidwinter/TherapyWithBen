@@ -1,0 +1,113 @@
+---
+---
+
+<div id="rates" class="rates-box reveal" data-rates aria-labelledby="rates-title">
+  <div class="rates-box__layout">
+    <div class="rates-box__copy">
+      <h3 id="rates-title">A sliding scale</h3>
+      <p class="rates-box__intro">
+        Tailored therapy means tailored pricing points. To ensure everybody can access
+        therapy, I operate a sliding scale system for rates. This system is designed to
+        make sessions a similar level of affordable for everybody, no matter their income.
+        This is indicative of the starting point for pricing, with the final rate being
+        agreed between us.
+      </p>
+      <p class="rates-footnote">
+        This is a guide only. Full payment and cancellation terms are in the
+        {' '}<a href="/payment-policy">Payment &amp; cancellation policy</a>.
+      </p>
+    </div>
+
+    <div class="rates-box__scale">
+      <label class="rates-check">
+        <input type="checkbox" data-dependents />
+        <span>I look after at least one other person (I have dependents)</span>
+      </label>
+
+      <p class="rates-hint" data-income-hint>
+        Include all income, including from universal credit or other welfare.
+      </p>
+      <p class="rates-hint rates-hint--household is-hidden" data-household-hint role="status">
+        Please indicate household income.
+      </p>
+
+      <div class="rates-slider-wrap">
+        <label class="rates-slider-label" for="income-scale">
+          <span data-income-label>Indicative income</span>
+          <strong data-income-display>£25,000</strong>
+        </label>
+        <input
+          id="income-scale"
+          class="rates-slider"
+          type="range"
+          min="0"
+          max="120000"
+          step="1000"
+          value="25000"
+          data-income-slider
+        />
+        <div class="rates-slider-ends" aria-hidden="true">
+          <span>£0</span>
+          <span>£120,000+</span>
+        </div>
+      </div>
+
+      <div class="rates-result" aria-live="polite">
+        <p class="rates-result__band" data-band-label>Up to £25,000</p>
+        <p class="rates-result__fee">
+          <span data-fee-amount>£50</span>
+          <span class="rates-result__unit">per session</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const root = document.querySelector('[data-rates]');
+  if (root) {
+    const dependents = /** @type {HTMLInputElement} */ (root.querySelector('[data-dependents]'));
+    const slider = /** @type {HTMLInputElement} */ (root.querySelector('[data-income-slider]'));
+    const incomeDisplay = root.querySelector('[data-income-display]');
+    const bandLabel = root.querySelector('[data-band-label]');
+    const feeAmount = root.querySelector('[data-fee-amount]');
+    const householdHint = root.querySelector('[data-household-hint]');
+    const incomeLabel = root.querySelector('[data-income-label]');
+
+    const formatMoney = (value) =>
+      new Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'GBP',
+        maximumFractionDigits: 0,
+      }).format(value);
+
+    const getBand = (income, hasDependents) => {
+      if (hasDependents) {
+        if (income <= 35000) return { label: 'Up to £35,000', fee: 30 };
+        if (income <= 60000) return { label: '£35,001 – £60,000', fee: 50 };
+        if (income <= 80000) return { label: '£60,001 – £80,000', fee: 80 };
+        return { label: '£80,000+', fee: 100 };
+      }
+      if (income <= 25000) return { label: 'Up to £25,000', fee: 50 };
+      if (income <= 55000) return { label: '£25,001 – £55,000', fee: 80 };
+      return { label: '£55,000+', fee: 100 };
+    };
+
+    const update = () => {
+      const hasDependents = dependents.checked;
+      const income = Number(slider.value);
+      const band = getBand(income, hasDependents);
+      const atMax = income >= Number(slider.max);
+
+      householdHint.classList.toggle('is-hidden', !hasDependents);
+      incomeLabel.textContent = hasDependents ? 'Household income' : 'Indicative income';
+      incomeDisplay.textContent = atMax ? `${formatMoney(income)}+` : formatMoney(income);
+      bandLabel.textContent = band.label;
+      feeAmount.textContent = `£${band.fee}`;
+    };
+
+    dependents.addEventListener('change', update);
+    slider.addEventListener('input', update);
+    update();
+  }
+</script>
