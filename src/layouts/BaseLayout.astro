@@ -9,7 +9,7 @@ interface Props {
 const siteUrl = (Astro.site?.href ?? 'https://therapywithben.uk').replace(/\/$/, '');
 const {
   title = 'Therapy With Ben | Integrative Psychotherapy in Walthamstow, London',
-  description = 'Integrative psychotherapy with Ben in Walthamstow, East London. Trauma-informed support for people who have tried therapy before, or felt it wasn’t for them — and are ready for a better fit.',
+  description = 'Integrative psychotherapy in Walthamstow for children, adolescents, and adults. Trauma-informed support if therapy hasn’t worked before — a calmer, better fit in East London.',
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
@@ -56,6 +56,11 @@ const jsonLd = {
         {
           '@type': 'Place',
           name: 'Walthamstow, Waltham Forest, London, E17',
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 51.5905,
+            longitude: -0.0177,
+          },
         },
         {
           '@type': 'AdministrativeArea',
@@ -68,6 +73,16 @@ const jsonLd = {
         addressRegion: 'London',
         postalCode: 'E17',
         addressCountry: 'GB',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 51.5905,
+        longitude: -0.0177,
+      },
+      audience: {
+        '@type': 'PeopleAudience',
+        name: 'Children, adolescents, and adults',
+        suggestedMinAge: 5,
       },
       founder: { '@id': personId },
       employee: { '@id': personId },
@@ -88,7 +103,9 @@ const jsonLd = {
         'Anxiety',
         'Emotional-Based School Avoidance',
         'Neurodivergence',
+        'Children',
         'Adolescents and young adults',
+        'Adults',
       ],
     },
     {
@@ -119,12 +136,14 @@ const jsonLd = {
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="integrative psychotherapy Walthamstow, therapist East London, trauma therapy London, therapy for adolescents, ACT therapy, therapy after failed therapy, HCPC music therapist, NCIP, Therapy With Ben"
+      content="integrative psychotherapy Walthamstow, therapist East London, therapy for children, therapy for adolescents, therapy for adults, trauma therapy London, ACT therapy, HCPC music therapist, NCIP, Therapy With Ben"
     />
     <meta name="author" content="Ben Richardson" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="geo.region" content="GB-LND" />
-    <meta name="geo.placename" content="Walthamstow" />
+    <meta name="geo.placename" content="Walthamstow, London" />
+    <meta name="geo.position" content="51.5905;-0.0177" />
+    <meta name="ICBM" content="51.5905, -0.0177" />
     <link rel="canonical" href={canonical} />
 
     <meta property="og:type" content={isHome ? 'website' : 'article'} />
@@ -146,8 +165,11 @@ const jsonLd = {
     <meta name="twitter:image:alt" content="Therapy With Ben — integrative psychotherapy in East London" />
 
     <meta name="theme-color" content="#eef3f0" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
