@@ -1,0 +1,126 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+
+const title = 'Therapy for Teenagers & Adolescents in Walthamstow | Therapy With Ben';
+const description =
+  'Specialised adolescent therapy in Walthamstow, London E17. Compassionate support for teenagers facing EBSA, school anxiety, stress, and identity transitions.';
+const h1 = 'Integrative Therapy & Counselling for Teenagers in Walthamstow';
+const lede =
+  'A calm, flexible space for young people in Walthamstow and East London who feel stuck with school, anxiety, identity, or the sense that therapy “isn’t for them.”';
+
+const siteUrl = 'https://therapywithben.uk';
+const pageJsonLd = {
+  '@type': 'MedicalBusiness',
+  '@id': `${siteUrl}/therapy-for-teenagers-walthamstow#service`,
+  name: 'Therapy for Teenagers & Adolescents in Walthamstow',
+  description,
+  url: `${siteUrl}/therapy-for-teenagers-walthamstow`,
+  image: `${siteUrl}/og-image.jpg`,
+  email: 'hello@therapywithben.uk',
+  priceRange: '££',
+  medicalSpecialty: 'Psychotherapy',
+  serviceType: 'Adolescent psychotherapy',
+  areaServed: {
+    '@type': 'Place',
+    name: 'Walthamstow, London E17',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Walthamstow',
+      addressRegion: 'London',
+      postalCode: 'E17',
+      addressCountry: 'GB',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 51.5905,
+      longitude: -0.0177,
+    },
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Walthamstow',
+    addressRegion: 'London',
+    postalCode: 'E17',
+    addressCountry: 'GB',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 51.5905,
+    longitude: -0.0177,
+  },
+  audience: {
+    '@type': 'PeopleAudience',
+    name: 'Teenagers and adolescents',
+  },
+};
+---
+
+<LandingLayout
+  title={title}
+  description={description}
+  h1={h1}
+  lede={lede}
+  eyebrow="Walthamstow · Adolescents"
+  pageJsonLd={pageJsonLd}
+>
+  <h2>Support that fits how teenagers actually show up</h2>
+  <p>
+    Adolescence can feel overwhelming — school pressure, friendships, identity, family
+    dynamics, and a nervous system that rarely gets a break. I offer integrative
+    psychotherapy for teenagers and young people in Walthamstow who need a space that
+    adapts to them, rather than asking them to perform as a “good client.”
+  </p>
+  <p>
+    Sessions can include talking, experiential tools, and creative or musical processes
+    where that helps. We move at a pace that feels manageable, with clear consent and
+    regular check-ins.
+  </p>
+
+  <h2>EBSA, school anxiety, and feeling stuck with school</h2>
+  <p>
+    Emotionally Based School Avoidance (EBSA) and school-related anxiety are a core part
+    of my work. When a young person is struggling to attend, push harder rarely helps —
+    we need to understand what school has come to mean in their body and story, and
+    rebuild psychological flexibility from there.
+  </p>
+  <p>
+    I work with adolescents facing school refusal patterns, panic around attendance,
+    burnout from academic pressure, and the isolation that often follows long absences.
+    The aim is not to force a return overnight, but to support safer, steadier steps when
+    the young person is ready.
+  </p>
+
+  <h2>Working with parents and carers</h2>
+  <p>
+    Where helpful, I collaborate with parents and carers so the young person isn’t
+    carrying everything alone. Updates stay careful and proportionate: explicit session
+    detail stays confidential, while practical themes around support, boundaries, and
+    next steps can be shared with permission when safe to do so.
+  </p>
+  <p>
+    If you’re a parent looking for therapy in Walthamstow for a teenager who has tried
+    counselling before and left feeling unseen, this space is often a good fit.
+  </p>
+
+  <h2>Where we meet in Walthamstow</h2>
+  <p>
+    I don’t currently hold a fixed clinic room. When we begin, we arrange a suitable
+    space together in the Walthamstow / East London area — a private room that feels
+    calm and workable for the young person.
+  </p>
+  <p>
+    Home visits are also available, and can be especially helpful for withdrawn
+    adolescents, school-avoidant young people, or anyone for whom leaving the house
+    is part of the struggle. Online sessions remain an option too, if that feels
+    safer to start with.
+  </p>
+
+  <h2>What sessions look like</h2>
+  <ul>
+    <li>A clear, low-pressure first conversation (including a free 15-minute consultation).</li>
+    <li>Agreed session structure — talking, experiential, or creative — named before we begin.</li>
+    <li>ACT-informed work that builds flexibility without erasing hard feelings.</li>
+    <li>Transparent sliding-scale fees agreed together — see rates on the
+      {' '}<a href="/#rates">homepage</a>.</li>
+  </ul>
+</LandingLayout>

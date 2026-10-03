@@ -1,0 +1,120 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+
+const title = 'Integrative Psychotherapy in Walthamstow, London E17 | Therapy With Ben';
+const description =
+  'NCIP-accredited integrative psychotherapy in Walthamstow. A calm, flexible space blending relational talking therapy, ACT, and creative approaches.';
+const h1 = 'Integrative Psychotherapy in Walthamstow, London E17';
+const lede =
+  'Calm, relational integrative psychotherapy for adults in Walthamstow and East London — especially if previous therapy didn’t quite land, and you want something more flexible than a single fixed model.';
+
+const siteUrl = 'https://therapywithben.uk';
+const pageJsonLd = {
+  '@type': 'MedicalBusiness',
+  '@id': `${siteUrl}/integrative-psychotherapy-walthamstow#service`,
+  name: 'Integrative Psychotherapy in Walthamstow',
+  description,
+  url: `${siteUrl}/integrative-psychotherapy-walthamstow`,
+  image: `${siteUrl}/og-image.jpg`,
+  email: 'hello@therapywithben.uk',
+  priceRange: '££',
+  medicalSpecialty: 'Psychotherapy',
+  serviceType: 'Integrative psychotherapy',
+  areaServed: {
+    '@type': 'Place',
+    name: 'Walthamstow, London E17',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Walthamstow',
+      addressRegion: 'London',
+      postalCode: 'E17',
+      addressCountry: 'GB',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 51.5905,
+      longitude: -0.0177,
+    },
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Walthamstow',
+    addressRegion: 'London',
+    postalCode: 'E17',
+    addressCountry: 'GB',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 51.5905,
+    longitude: -0.0177,
+  },
+  audience: {
+    '@type': 'PeopleAudience',
+    name: 'Adults seeking integrative psychotherapy',
+  },
+};
+---
+
+<LandingLayout
+  title={title}
+  description={description}
+  h1={h1}
+  lede={lede}
+  eyebrow="Walthamstow · Adults"
+  pageJsonLd={pageJsonLd}
+>
+  <h2>What integrative psychotherapy means here</h2>
+  <p>
+    Integrative psychotherapy means I don’t stick to one rigid template. We draw on
+    different modalities — relational talking therapy, Acceptance and Commitment Therapy
+    (ACT), and experiential or creative approaches — to find what actually resonates with
+    you and your history, adjusting as we go.
+  </p>
+  <p>
+    If you’ve tried therapy before and left feeling stuck, unseen, or sure it “wasn’t for
+    you,” it often isn’t that therapy failed. It’s that the approach didn’t match you.
+    This practice is built for that second (or third) chance — without starting from
+    scratch in the same old way.
+  </p>
+
+  <h2>Relational depth, without the jargon trap</h2>
+  <p>
+    When we work together, you can expect candour and collaboration. Your lived experience
+    is held in higher regard than textbook models. I’m interested in functional truth: the
+    beliefs we treat as true and act on — even when they cause pain — and how those beliefs
+    shape day-to-day behaviour.
+  </p>
+  <p>
+    The goal isn’t to erase hard feelings. It’s to help you drop the struggle with what’s
+    keeping you stuck, stay grounded in what matters, and take steps toward a life aligned
+    with your values.
+  </p>
+
+  <h2>ACT-informed and creatively open</h2>
+  <p>
+    Much of the work is ACT-informed: building psychological flexibility, untangling from
+    unhelpful self-stories, and supporting committed action. Where it helps, we can also
+    bring in creative or musical processes — always with clear consent and an agreed frame
+    for the session.
+  </p>
+  <p>
+    I am registered with the HCPC as an Arts Therapist / Music Therapist and practise under
+    the standards of the National Council of Integrative Psychotherapists (NCIP).
+  </p>
+
+  <h2>Practicalities in Walthamstow</h2>
+  <p>
+    I work across Walthamstow and East London, but I don’t currently hold a fixed clinic
+    room. When we begin, we arrange a suitable private space together — somewhere calm
+    and practical for the work. Home visits are available where that feels more
+    accessible, and online sessions remain an option if that’s the better fit.
+  </p>
+  <ul>
+    <li>Serving Walthamstow, Waltham Forest (E17), and the wider East London area.</li>
+    <li>Transparent sliding-scale fees — explore the
+      {' '}<a href="/#rates">rates guide</a>
+      {' '}on the homepage; the final fee is agreed between us.</li>
+    <li>Clear policies for privacy, payment, and therapeutic agreements in the footer.</li>
+    <li>A free 15-minute consultation to check fit before committing.</li>
+  </ul>
+</LandingLayout>

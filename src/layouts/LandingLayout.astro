@@ -1,0 +1,55 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  h1: string;
+  lede: string;
+  eyebrow?: string;
+  pageJsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  h1,
+  lede,
+  eyebrow = 'Therapy With Ben',
+  pageJsonLd,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} pageJsonLd={pageJsonLd}>
+  <Header />
+  <main id="main" class="landing-page">
+    <article class="section section--tight landing-article">
+      <p class="section__eyebrow">
+        <a href="/">Home</a>
+        <span class="landing-eyebrow-sep" aria-hidden="true">·</span>
+        <span>{eyebrow}</span>
+      </p>
+      <h1 class="landing-title">{h1}</h1>
+      <p class="section__lede landing-lede">{lede}</p>
+
+      <div class="landing-body">
+        <slot />
+      </div>
+
+      <div class="landing-cta">
+        <h2 class="landing-cta__title">Ready to begin?</h2>
+        <p class="landing-cta__text">
+          Book a free 15-minute consultation to see whether working together feels like
+          the right fit. There’s no pressure — just a gentle first conversation.
+        </p>
+        <div class="landing-cta__actions">
+          <a class="btn btn--primary" href="/#contact">Book a free 15-minute consultation</a>
+          <a class="btn btn--ghost" href="mailto:hello@therapywithben.uk">Email hello@therapywithben.uk</a>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>

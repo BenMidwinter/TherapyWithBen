@@ -4,12 +4,14 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  pageJsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const siteUrl = (Astro.site?.href ?? 'https://therapywithben.uk').replace(/\/$/, '');
 const {
   title = 'Therapy With Ben | Integrative Psychotherapy in Walthamstow, London',
   description = 'Integrative psychotherapy in Walthamstow for children, adolescents, and adults. Trauma-informed support if therapy hasn’t worked before — a calmer, better fit in East London.',
+  pageJsonLd,
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
@@ -122,6 +124,7 @@ const jsonLd = {
       ],
       sameAs: ['https://thatmusictherapylot.uk/'],
     },
+    ...(pageJsonLd ? (Array.isArray(pageJsonLd) ? pageJsonLd : [pageJsonLd]) : []),
   ],
 };
 ---

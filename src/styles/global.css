@@ -933,6 +933,121 @@ a:hover {
   color: var(--color-sage-deep);
 }
 
+.landing-page .landing-article {
+  min-height: 50vh;
+  padding-bottom: var(--space-2xl);
+}
+
+.landing-eyebrow-sep {
+  margin: 0 0.45rem;
+  color: rgba(74, 92, 81, 0.45);
+}
+
+.landing-title {
+  margin: 0 0 var(--space-md);
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.8vw, 3.1rem);
+  font-weight: 450;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.landing-lede {
+  max-width: var(--measure);
+}
+
+.landing-body {
+  max-width: var(--measure-wide);
+  color: var(--color-ink-soft);
+}
+
+.landing-body h2 {
+  margin: var(--space-lg) 0 var(--space-sm);
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 450;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.landing-body p {
+  margin: 0 0 var(--space-sm);
+  max-width: var(--measure);
+}
+
+.landing-body ul {
+  margin: 0 0 var(--space-md);
+  padding-left: 1.2rem;
+  max-width: var(--measure);
+}
+
+.landing-body li + li {
+  margin-top: 0.4rem;
+}
+
+.landing-body a {
+  color: var(--color-sage-deep);
+}
+
+.landing-cta {
+  margin-top: var(--space-xl);
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid rgba(95, 122, 104, 0.22);
+  border-radius: calc(var(--radius) + 0.25rem);
+  background: rgba(247, 250, 248, 0.88);
+  max-width: var(--measure-wide);
+}
+
+.landing-cta__title {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 450;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.landing-cta__text {
+  margin: 0 0 var(--space-md);
+  max-width: var(--measure);
+  color: var(--color-ink-soft);
+}
+
+.landing-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-services {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgba(74, 92, 81, 0.78);
+  max-width: 52rem;
+}
+
+.footer-services a {
+  color: rgba(63, 86, 72, 0.78);
+  text-decoration: none;
+}
+
+.footer-services a:hover {
+  color: var(--color-ink);
+  text-decoration: underline;
+}
+
+.footer-services__label {
+  margin-right: 0.35rem;
+}
+
+.footer-services__sep {
+  margin: 0 0.4rem;
+  color: rgba(74, 92, 81, 0.4);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(1.1rem);

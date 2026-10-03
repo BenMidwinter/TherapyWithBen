@@ -1,0 +1,117 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+
+const title = 'Online Therapy for Teens & Adults Across the UK | Therapy With Ben';
+const description =
+  'Accredited online integrative psychotherapy & adolescent therapy across the UK. Specialised support for school anxiety, EBSA, stress, and neurodiversity from home.';
+const h1 = 'Online Integrative Psychotherapy & Adolescent Support Across the UK';
+const lede =
+  'Secure, low-pressure online therapy for teenagers and adults anywhere in the UK — especially helpful when leaving the house, attending school, or travelling to a clinic feels like too much.';
+
+const siteUrl = 'https://therapywithben.uk';
+const pageJsonLd = {
+  '@type': 'MedicalBusiness',
+  '@id': `${siteUrl}/online-therapy-uk#service`,
+  name: 'Online Integrative Psychotherapy Across the UK',
+  description,
+  url: `${siteUrl}/online-therapy-uk`,
+  image: `${siteUrl}/og-image.jpg`,
+  email: 'hello@therapywithben.uk',
+  priceRange: '££',
+  medicalSpecialty: 'Psychotherapy',
+  serviceType: 'Online Psychotherapy',
+  areaServed: {
+    '@type': 'Country',
+    name: 'United Kingdom',
+    sameAs: 'https://www.iso.org/obp/ui/#iso:code:3166:GB',
+  },
+  availableChannel: {
+    '@type': 'ServiceChannel',
+    serviceType: 'Online Psychotherapy',
+    availableLanguage: 'en-GB',
+  },
+  audience: {
+    '@type': 'PeopleAudience',
+    name: 'Adolescents and adults across the UK',
+  },
+};
+---
+
+<LandingLayout
+  title={title}
+  description={description}
+  h1={h1}
+  lede={lede}
+  eyebrow="Online · UK-wide"
+  pageJsonLd={pageJsonLd}
+>
+  <h2>Why online therapy can work — especially when in-person feels hard</h2>
+  <p>
+    Online sessions remove the commute, the waiting room, and a lot of the sensory load
+    that makes therapy feel impossible for some people. For anxious teenagers, school-avoidant
+    young people, or adults managing burnout and neurodivergent overwhelm, being able to
+    join from a familiar room can make the difference between starting and never starting.
+  </p>
+  <p>
+    Accessibility matters. If leaving home is part of the struggle, therapy shouldn’t
+    require conquering that hurdle before help can begin.
+  </p>
+
+  <h2>The same integrative approach — adapted for video</h2>
+  <p>
+    Online work still uses an integrative, relational, ACT-informed frame. We agree how
+    we’re working at the start of each session. Talking therapy, experiential exercises,
+    and creative processes can all adapt to a secure video platform — with clear boundaries
+    and consent throughout.
+  </p>
+  <p>
+    This includes specialised support for school anxiety and EBSA, stress and academic or
+    workplace burnout, identity and life transitions, and neurodivergent clients (for
+    example ADHD or autism without severe learning disabilities), where online is a good
+    clinical fit.
+  </p>
+
+  <h2>Practicalities across the UK</h2>
+  <ul>
+    <li>
+      <strong>Secure video:</strong>
+      {' '}sessions run on encrypted platforms; online recordings and data handling follow
+      the
+      {' '}<a href="/privacy-policy">Privacy policy</a>.
+    </li>
+    <li>
+      <strong>UK-wide availability:</strong>
+      {' '}you can be anywhere in the United Kingdom with a private space and a stable
+      connection.
+    </li>
+    <li>
+      <strong>Confidentiality:</strong>
+      {' '}the same safeguarding and confidentiality framework applies online as in person —
+      see
+      {' '}<a href="/safeguarding-and-complaints">Safeguarding &amp; complaints</a>.
+    </li>
+    <li>
+      <strong>Session structure:</strong>
+      {' '}we agree the approach before we begin, keep a manageable pace, and use a free
+      15-minute consultation to check fit first.
+    </li>
+    <li>
+      <strong>Fees:</strong>
+      {' '}sliding-scale rates apply online too — see the
+      {' '}<a href="/#rates">rates guide</a>.
+    </li>
+  </ul>
+
+  <h2>Who online therapy suits well</h2>
+  <p>
+    Online work is often especially helpful for people who feel therapy “isn’t for them”
+    after a clinic-based experience that felt rigid or hard to access. It’s also a strong
+    option for adolescents who engage more readily from home, and for adults balancing
+    work, caring responsibilities, or energy limits.
+  </p>
+  <p>
+    If you’re unsure whether online or in-person work in the Walthamstow area (including
+    an arranged room or home visit) fits better, the free consultation is a good place to
+    sort that out together.
+  </p>
+</LandingLayout>
